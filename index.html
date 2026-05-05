@@ -65,6 +65,80 @@ body { font-family: 'Segoe UI', -apple-system, Arial, sans-serif; color: #2c3e50
 .contact h2 { color: #1a5276; margin-bottom: 10px; }
 .contact a { color: #2e86c1; text-decoration: none; font-weight: 600; }
 .contact a:hover { text-decoration: underline; }
+.screenshot {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff;
+}
+.screenshot h2 { color: #1a5276; margin-bottom: 20px; font-size: 1.5em; }
+.screenshot img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(26, 82, 118, 0.15);
+}
+.steps {
+  background: #f8f9fa;
+  padding: 50px 20px;
+  text-align: center;
+}
+.steps h2 { color: #1a5276; margin-bottom: 30px; font-size: 1.5em; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.step {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.step-num {
+  display: inline-block;
+  background: #1a5276;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.step h3 { color: #1a5276; font-size: 1.05em; margin-bottom: 8px; }
+.step p { color: #555; font-size: 0.92em; margin-bottom: 12px; }
+.step img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #d0d7de;
+}
+.support {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.support h2 { color: #1a5276; font-size: 1.5em; margin-bottom: 8px; text-align: center; }
+.support .intro { text-align: center; color: #555; margin-bottom: 30px; }
+.faq {
+  border-bottom: 1px solid #e0e6ec;
+  padding: 16px 0;
+}
+.faq:last-child { border-bottom: none; }
+.faq h3 {
+  color: #1a5276;
+  font-size: 1.02em;
+  margin-bottom: 6px;
+}
+.faq p {
+  color: #444;
+  font-size: 0.95em;
+  margin: 0;
+}
+.faq a { color: #2e86c1; text-decoration: none; }
+.faq a:hover { text-decoration: underline; }
 footer {
   text-align: center;
   padding: 20px;
@@ -74,6 +148,7 @@ footer {
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.8em; }
   .features { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -111,9 +186,88 @@ footer {
   </div>
 </div>
 
+<div class="screenshot">
+  <h2>Before and After</h2>
+  <img src="images/BeforeAfter_Composite.png" alt="Excel spreadsheet before and after running LinkSheet — plain text becomes clickable hyperlinks">
+</div>
+
+<div class="steps">
+  <h2>How It Works</h2>
+  <div class="steps-grid">
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Open LinkSheet</h3>
+      <p>Pick your Excel file and the folder of documents.</p>
+      <img src="images/GUI_Empty.png" alt="LinkSheet starting screen">
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Click Create Hyperlinks</h3>
+      <p>LinkSheet scans every cell and matches files automatically.</p>
+      <img src="images/GUI_Ready.png" alt="LinkSheet ready to run">
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Done</h3>
+      <p>Every match becomes a clickable link. A backup is saved automatically.</p>
+      <img src="images/GUI_Completed.png" alt="LinkSheet results screen">
+    </div>
+  </div>
+</div>
+
 <div class="platforms">
   <h2>Available on Windows and Mac</h2>
   <p>Works with Microsoft Excel. Available on Gumroad, the Mac App Store, and the Microsoft Store.</p>
+</div>
+
+<div class="support" id="support">
+  <h2>Support &amp; FAQ</h2>
+  <p class="intro">Quick answers to the most common questions.</p>
+
+  <div class="faq">
+    <h3>Where can I download LinkSheet?</h3>
+    <p>LinkSheet is available on the <a href="https://apps.microsoft.com/detail/9ntmnm2f9m5q">Microsoft Store</a>, the Mac App Store, and <a href="https://dhamster44.gumroad.com/l/linksheet">Gumroad</a>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>What versions of Excel does it work with?</h3>
+    <p>LinkSheet works with <strong>.xlsx</strong> and <strong>.xlsm</strong> files. Macro-enabled <strong>.xlsm</strong> files require Microsoft Excel to be installed on your computer. <strong>.xlsx</strong> files do not.</p>
+  </div>
+
+  <div class="faq">
+    <h3>What are the system requirements?</h3>
+    <p>Windows 10 or later, or macOS. Microsoft Excel is only required for <strong>.xlsm</strong> macro-enabled workbooks.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Will LinkSheet modify my original file?</h3>
+    <p>Yes — but a timestamped backup is created automatically before any changes are made, in a folder called <strong>LinkSheet Backups</strong> next to your Excel file. Your original is always recoverable.</p>
+  </div>
+
+  <div class="faq">
+    <h3>My hyperlinks stopped working. Why?</h3>
+    <p>Hyperlinks point to specific file locations. If you move, rename, or delete the linked files, the links break. Run LinkSheet again on the new folder to refresh them.</p>
+  </div>
+
+  <div class="faq">
+    <h3>What languages does LinkSheet support?</h3>
+    <p>English, Spanish, German, Chinese, and Japanese. The interface follows your Windows or macOS language setting.</p>
+  </div>
+
+  <div class="faq">
+    <h3>How do I get a refund?</h3>
+    <p>Refunds are handled by the store you bought from:</p>
+    <p>
+      &middot; <strong>Microsoft Store:</strong> request via <a href="https://account.microsoft.com/billing/orders">account.microsoft.com → Order history</a><br>
+      &middot; <strong>Mac App Store:</strong> request via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a><br>
+      &middot; <strong>Gumroad:</strong> reply to your purchase email or contact <a href="mailto:dham@cropsettle.com">dham@cropsettle.com</a>
+    </p>
+  </div>
+
+  <div class="faq">
+    <h3>I need help — how do I contact support?</h3>
+    <p>Email <a href="mailto:dham@cropsettle.com">dham@cropsettle.com</a>. Please include your operating system, the version of LinkSheet, and a description of what's happening.</p>
+  </div>
 </div>
 
 <div class="contact">
