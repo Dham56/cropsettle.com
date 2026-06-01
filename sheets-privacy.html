@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — LinkSheet for Google Sheets | CropSettle LLC</title>
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { --brand:#1a5276; --brand2:#2e86c1; --ink:#2c3e50; --mid:#555; --line:#e0e6ec; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',-apple-system,Arial,sans-serif; color:var(--ink); line-height:1.6; }
+    .hero { background:linear-gradient(135deg,#1a5276 0%,#2e86c1 100%); color:#fff; padding:48px 20px; text-align:center; }
+    .hero h1 { font-size:1.9em; font-weight:700; margin-bottom:6px; }
+    .hero .meta { opacity:.85; font-size:.95em; }
+    .wrap { max-width:760px; margin:0 auto; padding:48px 22px 72px; }
+    h2 { color:var(--brand); font-size:1.25em; margin:30px 0 8px; border-bottom:1px solid var(--line); padding-bottom:5px; }
+    p { margin-bottom:14px; color:#444; }
+    ul { padding-left:22px; margin-bottom:14px; }
+    li { margin:6px 0; color:#444; }
+    code { background:#f0f4f8; padding:1px 5px; border-radius:4px; font-size:90%; }
+    a { color:var(--brand2); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    footer { text-align:center; padding:22px; font-size:.85em; color:#888; border-top:1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Privacy Policy — LinkSheet for Google Sheets</h1>
+    <p class="meta">Last updated: June 1, 2026 · CropSettle LLC</p>
+  </div>
+
+  <div class="wrap">
+    <p>LinkSheet for Google Sheets ("the add-on") is a Google Workspace add-on published by
+    CropSettle LLC. This policy explains what the add-on accesses and what it does — and does
+    not — do with your data.</p>
+
+    <h2>What the add-on accesses</h2>
+    <ul>
+      <li><strong>The active spreadsheet</strong> — to read cell values and write the hyperlinks
+        you ask it to create (and remove them when you use Clear Hyperlinks). Scope:
+        <code>spreadsheets.currentonly</code> (only the spreadsheet you have open, not your other files).</li>
+      <li><strong>Your Google Drive (read-only, metadata only)</strong> — to read the files in the
+        folder you choose and obtain each file's shareable link so it can build the hyperlinks.
+        Scope: <code>drive.metadata.readonly</code>. You pick the folder via the Google Picker; the
+        add-on reads only <strong>file names and links — never file contents</strong>, operates only
+        on the folder you select, and <strong>never modifies, deletes, or creates anything</strong>
+        in your Drive.</li>
+    </ul>
+
+    <h2>What the add-on does NOT do</h2>
+    <ul>
+      <li>It does <strong>not</strong> copy, store, or transmit your spreadsheet, your files, or
+        their contents to CropSettle LLC or any third party.</li>
+      <li>It does <strong>not</strong> open, read, or use any files outside the folder you select
+        for a run, and it never reads file <em>contents</em> — only names and links.</li>
+      <li>It does <strong>not</strong> sell or share any personal data.</li>
+      <li>It does <strong>not</strong> use your content for advertising or model training.</li>
+    </ul>
+
+    <h2>Processing &amp; retention</h2>
+    <p>All processing happens within Google's environment during the moment you run the add-on.
+    The add-on keeps only minimal <strong>settings</strong> (e.g. your last-used options and, if you
+    enter one, a license key) in Google's per-user/script property storage. It retains
+    <strong>no copy</strong> of your spreadsheet or file contents after a run completes.</p>
+
+    <h2>Undo &amp; safety</h2>
+    <p>The add-on does not create separate backup copies. Google Sheets' built-in
+    <strong>version history</strong> (File → Version history) is the safety net — any run can be
+    rolled back there.</p>
+
+    <h2>Google API Services User Data Policy</h2>
+    <p>LinkSheet for Google Sheets' use and transfer of information received from Google APIs adheres
+    to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+    Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or requests: <strong><a href="mailto:support@cropsettle.com">support@cropsettle.com</a></strong><br>
+    CropSettle LLC, 30691 County Road 9, Haxtun, CO 80731-9503, United States.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 CropSettle LLC. All rights reserved. ·
+    <a href="https://cropsettle.com" style="color:#888;">cropsettle.com</a>
+  </footer>
+</body>
+</html>
