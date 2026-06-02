@@ -1,0 +1,73 @@
+#!/bin/sh
+# ── cropsettle.com multi-agent collision guard ───────────────────────────────
+# Two AI agents (Windows + Mac Claude) and Doug edit this shared site. They don't
+# share live memory, so this hook makes git itself enforce safe coordination:
+#   (1) PULL-FIRST  — block committing on a branch that's behind origin (so any
+#                     concurrent edit surfaces as a normal merge, never a clobber)
+#   (2) MUTEX       — block if ANOTHER agent holds an active claim on the repo
+#   (3) CLAIM-FIRST — agents must hold their own active claim before editing
+#                     (Doug gets a warning, not a block — he's the authority)
+#
+# One-time per machine:
+#   git config core.hooksPath .coordination/hooks
+#   git config coordination.agent windows      # or: mac  /  doug
+# Escape hatch (quick one-off):  COORD_OVERRIDE=1 git commit ...
+# Claim / release:  .coordination/claim.sh "<what>" [minutes]   .coordination/release.sh
+# -----------------------------------------------------------------------------
+CLAIM=".coordination/active-claim"
+ME="$(git config coordination.agent 2>/dev/null)"
+
+staged="$(git diff --cached --name-only)"
+[ -z "$staged" ] && exit 0
+# claim/release commits only touch the claim file — always allow them
+if [ -z "$(printf '%s\n' "$staged" | grep -v '^.coordination/active-claim$')" ]; then exit 0; fi
+[ "$COORD_OVERRIDE" = "1" ] && { echo "coord: OVERRIDE set — collision guard skipped."; exit 0; }
+[ -z "$ME" ] && { echo "coord: BLOCKED — identify yourself first:  git config coordination.agent windows|mac|doug"; exit 1; }
+
+now="$(date -u +%s)"
+branch="$(git rev-parse --abbrev-ref HEAD)"
+git fetch -q origin "$branch" 2>/dev/null || echo "coord: WARN — could not fetch origin (offline?); freshness not verified."
+
+field() { printf '%s\n' "$1" | grep "^$2=" | head -1 | cut -d= -f2-; }
+
+# (1) pull-first / freshness
+if git rev-parse "origin/$branch" >/dev/null 2>&1; then
+  behind="$(git rev-list --count "HEAD..origin/$branch" 2>/dev/null || echo 0)"
+  if [ "${behind:-0}" -gt 0 ] 2>/dev/null; then
+    echo "coord: BLOCKED — origin/$branch is $behind commit(s) ahead of you."
+    echo "       Someone pushed first. Run:  git pull --rebase   then re-commit (conflicts, if any, surface there)."
+    exit 1
+  fi
+fi
+
+# (2) another agent's active claim?
+rc="$(git show "origin/$branch:$CLAIM" 2>/dev/null || true)"
+if [ -n "$rc" ]; then
+  a="$(field "$rc" agent)"; e="$(field "$rc" expires_epoch)"; r="$(field "$rc" reason)"
+  if [ -n "$e" ] && [ "$a" != "$ME" ] && [ "$a" != "none" ] && [ "$e" -gt "$now" ] 2>/dev/null; then
+    echo "coord: BLOCKED — '$a' holds an active claim on cropsettle.com:"
+    echo "       reason: $r"
+    echo "       Wait for release, coordinate, or COORD_OVERRIDE=1 only if you're certain it's safe."
+    exit 1
+  fi
+fi
+
+# (3) you should hold your own active claim
+lc="$(cat "$CLAIM" 2>/dev/null || true)"
+mine=0
+if [ -n "$lc" ]; then
+  la="$(field "$lc" agent)"; le="$(field "$lc" expires_epoch)"
+  if [ "$la" = "$ME" ] && [ -n "$le" ] && [ "$le" -gt "$now" ] 2>/dev/null; then mine=1; fi
+fi
+if [ "$mine" -ne 1 ]; then
+  if [ "$ME" = "doug" ]; then
+    echo "coord: NOTE — committing without a claim (allowed for Doug). Agents must claim first."
+  else
+    echo "coord: BLOCKED — you ($ME) hold no active claim. Claim before editing:"
+    echo "       .coordination/claim.sh \"<what you're doing>\" [minutes]"
+    echo "       (or COORD_OVERRIDE=1 for a quick one-off)"
+    exit 1
+  fi
+fi
+echo "coord: OK — $ME, branch fresh, claim in order."
+exit 0
