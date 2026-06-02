@@ -1,4 +1,4 @@
-agent=windows
-reason=hook self-test
-expires_epoch=1780432541
-expires=2026-06-02T20:35:41Z
+agent=none
+reason=
+expires_epoch=0
+expires=
