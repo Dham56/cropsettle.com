@@ -1,4 +1,4 @@
-agent=windows
-reason=add sheets-support.html (Marketplace fix #3)
-expires_epoch=1780607176
-expires=2026-06-04T21:06:16Z
+agent=none
+reason=
+expires_epoch=0
+expires=
