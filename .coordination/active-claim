@@ -1,4 +1,4 @@
-agent=windows
-reason=Windows: add SMS consent section to sheets-support.html (A2P 10DLC opt-in)
-expires_epoch=1780688906
-expires=2026-06-05T19:48:26Z
+agent=none
+reason=
+expires_epoch=0
+expires=
