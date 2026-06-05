@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=mac
+reason=FAQ accuracy: .xlsm no-Excel + macOS 12 fix
+expires_epoch=1780623413
+expires=2026-06-05T01:36:53Z
