@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=mac
+reason=fix /get image path (absolute->relative)
+expires_epoch=1780766705
+expires=2026-06-06T17:25:05Z
