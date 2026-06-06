@@ -1,4 +1,4 @@
-agent=mac
-reason=de-LinkSheet cropsettle homepage + standalone support page + noindex; remove /get
-expires_epoch=1780779275
-expires=2026-06-06T20:54:35Z
+agent=none
+reason=
+expires_epoch=0
+expires=
