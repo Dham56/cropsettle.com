@@ -1,4 +1,4 @@
-agent=mac
-reason=add Google Search Console verification file
-expires_epoch=1780795184
-expires=2026-06-07T01:19:44Z
+agent=none
+reason=
+expires_epoch=0
+expires=
