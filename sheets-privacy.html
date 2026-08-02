@@ -26,7 +26,7 @@
 <body>
   <div class="hero">
     <h1>Privacy Policy — LinkSheet for Google Sheets</h1>
-    <p class="meta">Last updated: June 1, 2026 · CropSettle LLC</p>
+    <p class="meta">Last updated: August 2, 2026 · CropSettle LLC</p>
   </div>
 
   <div class="wrap">
@@ -45,7 +45,13 @@
         add-on reads only <strong>file names and links — never file contents</strong>, operates only
         on the folder you select, and <strong>never modifies, deletes, or creates anything</strong>
         in your Drive.</li>
+      <li><strong>The add-on's own sidebar</strong> — to display the LinkSheet panel inside
+        Google Sheets. Scope: <code>script.container.ui</code>. This grants no access to any
+        data; it only lets the add-on draw its own interface.</li>
     </ul>
+
+    <p>Those three are the <em>only</em> permissions LinkSheet requests. You can see them
+      yourself on the consent screen when you install it.</p>
 
     <h2>What the add-on does NOT do</h2>
     <ul>
