@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=sheets privacy: disclose script.container.ui scope
+expires_epoch=1785679505
+expires=2026-08-02T14:05:05Z
