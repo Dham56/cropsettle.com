@@ -1,4 +1,4 @@
-agent=windows
-reason=sheets.html + support: put the XLSX requirement out front; point CTA at the live listing
-expires_epoch=1788218409
-expires=2026-08-31T23:20:09Z
+agent=none
+reason=
+expires_epoch=0
+expires=
