@@ -23,6 +23,8 @@
     a { color:var(--brand2); text-decoration:none; }
     a:hover { text-decoration:underline; }
     .card { background:#f0f4f8; border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin:18px 0; }
+    .card.warn { background:#fff8e1; border-color:#f0c36d; border-left:4px solid #f0a500; color:#5a4300; }
+    .card.warn strong { color:#7a5c00; }
     .card .email { font-size:1.15em; font-weight:700; }
     footer { text-align:center; padding:22px; font-size:.85em; color:#888; border-top:1px solid var(--line); }
     footer a { color:#888; }
@@ -48,12 +50,16 @@
       browser you're using, and a short description of what happened.</p>
     </div>
 
+    <div class="card warn">
+      <strong>Before anything else: your file must be a Google Sheet, not an Excel file.</strong>
+      If an <strong>XLSX</strong> badge appears next to the file name, you are in Google's Office
+      editing mode, and Google does not show the <strong>Extensions</strong> menu at all &mdash; so no
+      add-on can run, and nothing on screen explains why. Choose
+      <strong>File &rarr; Save as Google Sheets</strong> to create a Google Sheets copy, then work in
+      that copy. Your original <code>.xlsx</code> file is not changed or deleted.
+    </div>
+
     <h2>Getting started</h2>
-    <p><strong>First, check that your file is a Google Sheet.</strong> If an <strong>XLSX</strong>
-    badge appears next to the file name, you are editing an Excel file in Office editing mode, and
-    Google does not show the <strong>Extensions</strong> menu at all &mdash; so no add-on can run.
-    Choose <strong>File &rarr; Save as Google Sheets</strong> to create a Google Sheets copy. Your
-    original <code>.xlsx</code> file is left untouched.</p>
     <ol>
       <li>Open your spreadsheet and go to <strong>Extensions &rarr; LinkSheet for Google Sheets &rarr;
         Open LinkSheet</strong>.</li>
