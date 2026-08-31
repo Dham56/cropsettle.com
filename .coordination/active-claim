@@ -1,4 +1,4 @@
-agent=windows
-reason=sheets pages pre-resubmission sweep (tm/Pro/refunds) - Windows
-expires_epoch=1788149677
-expires=2026-08-31T04:14:37Z
+agent=none
+reason=
+expires_epoch=0
+expires=
