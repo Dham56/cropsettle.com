@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=support page getting-started fix (review finding D2)
+expires_epoch=1788149791
+expires=2026-08-31T04:16:31Z
