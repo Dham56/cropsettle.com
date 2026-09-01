@@ -1,4 +1,4 @@
-agent=windows
-reason=sheets-support: free-tier tab scope wording after the 2026-09-01 tab fix
-expires_epoch=1788271838
-expires=2026-09-01T14:10:38Z
+agent=none
+reason=
+expires_epoch=0
+expires=
