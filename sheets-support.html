@@ -98,10 +98,14 @@
     values don't exactly match a filename.</p>
 
     <h3>Will it change or delete my data?</h3>
-    <p>No. LinkSheet only adds hyperlinks to matching cells in your spreadsheet. It skips cells that already
-    have a link, never overwrites formulas or pivot-table output, and never modifies your Google Drive&trade;.
-    To undo a run, use <strong>File &rarr; Version history</strong> in Google Sheets&trade;, or use the add-on's
-    <strong>Clear Hyperlinks</strong> feature.</p>
+    <p>Your values stay your values. <strong>Create</strong> adds hyperlinks to matching cells: text cells keep
+    their text, and number cells are linked with a HYPERLINK formula whose result is the number itself, so SUM
+    and arithmetic keep working. It skips cells that already have a link, never touches your other formulas or
+    pivot-table output, and never modifies your Google Drive&trade;. <strong>Clear Hyperlinks</strong> removes
+    every link in the workbook &mdash; including the HYPERLINK formulas Create writes (the number or text they
+    showed stays in the cell) &mdash; and, with a folder chosen, re-enters number cells matching a file so links
+    the add-on cannot read back are removed too. To undo any run, use
+    <strong>File &rarr; Version history</strong> in Google Sheets&trade;.</p>
 
     <h3>What does LinkSheet access?</h3>
     <p>Read-only, metadata-only Drive access (file names and links only — never file contents) and the active
