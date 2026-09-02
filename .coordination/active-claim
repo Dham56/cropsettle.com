@@ -1,4 +1,4 @@
-agent=windows
-reason=sheets-support FAQ truthing after 0.11.x adversarial review
-expires_epoch=1788325690
-expires=2026-09-02T05:08:10Z
+agent=none
+reason=
+expires_epoch=0
+expires=
