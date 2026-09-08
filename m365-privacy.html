@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy — LinkSheet for Microsoft 365 | CropSettle LLC</title>
+<style>
+  :root { --brand:#1a5276; --brand2:#2e86c1; --ink:#2c3e50; --mid:#555; --line:#e0e6ec; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',-apple-system,Arial,sans-serif; color:var(--ink); line-height:1.6; }
+  .hero { background:linear-gradient(135deg,#1a5276 0%,#2e86c1 100%); color:#fff; padding:48px 20px; text-align:center; }
+  .hero h1 { font-size:1.9em; font-weight:700; margin-bottom:6px; }
+  .hero .meta { opacity:.85; font-size:.95em; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 22px 72px; }
+  h2 { color:var(--brand); font-size:1.25em; margin:30px 0 8px; border-bottom:1px solid var(--line); padding-bottom:5px; }
+  p { margin-bottom:14px; color:#444; }
+  ul { padding-left:22px; margin-bottom:14px; }
+  li { margin:6px 0; color:#444; }
+  code { background:#f0f4f8; padding:1px 5px; border-radius:4px; font-size:90%; }
+  a { color:var(--brand2); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  footer { text-align:center; padding:22px; font-size:.85em; color:#888; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Privacy Policy — LinkSheet for Microsoft 365</h1>
+    <div class="meta">Last updated: September 8, 2026 · CropSettle LLC</div>
+  </div>
+
+  <div class="wrap">
+    <p><strong>LinkSheet for Microsoft 365</strong> ("the add-in") is an Excel add-in published by
+      CropSettle LLC. This policy explains what the add-in accesses and what it does — and does
+      not — do with your data. It covers this add-in only; our desktop applications and our
+      Google Sheets add-on have their own policies.</p>
+
+    <h2>What the add-in accesses</h2>
+    <ul>
+      <li><strong>The workbook you have open</strong> — to read cell values, so it can tell which
+        cell names which file, and to write the hyperlinks you ask for. Link Files reads and writes
+        the active worksheet; Repair Broken Links and Clear Hyperlinks read and write every sheet in
+        the open workbook. This happens through Excel's own add-in interface and needs no Microsoft
+        account permission at all.</li>
+      <li><strong>Your name</strong> — shown at the top of the panel so you can see which account is
+        signed in. Microsoft Graph permission: <code>User.Read</code>.</li>
+      <li><strong>File names and links in the OneDrive folder you choose</strong> — to match files to
+        your cells and to build the hyperlinks. Permission: <code>Files.Read</code>, which is
+        read-only. The add-in reads each file's <em>name</em> and its <em>link</em>. It does not open,
+        download, or read the contents of any file, and it never creates, changes, moves or deletes
+        anything in your OneDrive.</li>
+      <li><strong>Files shared with you</strong> — only if you open the "Shared with me" tab, and
+        only after you agree to an additional permission at that moment:
+        <code>Files.Read.All</code>, also read-only. If you never open that tab, this is never
+        requested.</li>
+    </ul>
+    <p>Those are the only permissions the add-in requests. You can see them yourself on the consent
+      screen when you first sign in.</p>
+
+    <h2>What the add-in does NOT do</h2>
+    <ul>
+      <li>It does not copy, store, or transmit your workbook, your files, or their contents to
+        CropSettle LLC or to any third party. Your workbook is never uploaded to us. We operate no
+        server that receives your content, because there is nothing for one to do.</li>
+      <li>It does not read file contents — only names and links.</li>
+      <li>It does not look outside the folder you choose for a run.</li>
+      <li>It does not use analytics, telemetry, advertising, or tracking of any kind.</li>
+      <li>It does not sell or share personal data, and it does not use your content to train models.</li>
+    </ul>
+
+    <h2>Where processing happens</h2>
+    <p>Everything happens on your own device, in the browser or Office client running the add-in.
+      The add-in talks directly to Microsoft — to <code>login.microsoftonline.com</code> to sign you
+      in and to <code>graph.microsoft.com</code> to list the folder you picked. Nothing is routed
+      through CropSettle LLC.</p>
+
+    <h2>What is stored, and where</h2>
+    <p>The add-in stores one thing: the sign-in token issued by Microsoft, kept by Microsoft's own
+      authentication library in your browser's local storage so you are not asked to sign in on
+      every run. It stays on your device, and signing out removes it. We never see it.</p>
+    <p>No other settings, file names, cell values, or usage records are retained after a run
+      finishes.</p>
+
+    <h2>Undo and safety</h2>
+    <p>The add-in does not make separate backup copies. Excel's own version history — File ▸ Info ▸
+      Version History in Excel on the web, or the equivalent in your Office client — is the safety
+      net, and any run can be rolled back there.</p>
+
+    <h2>Children</h2>
+    <p>The add-in is a business productivity tool. It is not directed to children and we do not
+      knowingly collect information from them — or, in fact, from anyone.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes we will update the date above. Because the add-in collects nothing,
+      material changes are unlikely.</p>
+
+    <h2>Your rights</h2>
+    <p>We hold no personal data about users of this add-in, so there is nothing for us to export,
+      correct, or delete on request. If you believe otherwise, write to us and we will look into it.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or requests: <a href="mailto:support@cropsettle.com">support@cropsettle.com</a><br />
+      CropSettle LLC, 30691 County Road 9, Haxtun, CO 80731-9503, United States.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 CropSettle LLC. All rights reserved. ·
+    <a href="https://cropsettle.com/support/">Support</a>
+  </footer>
+</body>
+</html>
