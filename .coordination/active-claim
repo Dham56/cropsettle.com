@@ -1,4 +1,4 @@
-agent=windows
-reason=add m365-privacy.html for AppSource submission
-expires_epoch=1788867415
-expires=2026-09-08T11:36:55Z
+agent=none
+reason=
+expires_epoch=0
+expires=
