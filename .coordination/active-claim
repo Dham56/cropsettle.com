@@ -1,4 +1,4 @@
-agent=windows
-reason=add Free/Pro pricing block with buy link to sheets.html
-expires_epoch=1788972282
-expires=2026-09-09T16:44:42Z
+agent=none
+reason=
+expires_epoch=0
+expires=
