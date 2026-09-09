@@ -34,7 +34,24 @@ body { font-family:'Segoe UI',-apple-system,Arial,sans-serif; color:#2c3e50; lin
   border-left:4px solid #f0a500; border-radius:6px; padding:16px 18px; color:#5a4300; }
 .notice strong { color:#7a5c00; }
 .notice a { color:#1a5276; }
-.steps { background:#f8f9fa; padding:48px 20px; }
+.pricing { background:#f8f9fa; padding:48px 20px; border-top:1px solid #e6e8ea; }
+.pricing .inner { max-width:760px; margin:0 auto; }
+.pricing h2 { color:#1a5276; font-size:1.5em; margin-bottom:6px; text-align:center; }
+.pricing .sub { text-align:center; color:#666; margin-bottom:26px; }
+.plans { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.plan { background:#fff; border:1px solid #e0e3e6; border-radius:8px; padding:22px 22px 24px; }
+.plan.pro { border-color:#1a5276; }
+.plan h3 { color:#1a5276; margin-bottom:4px; }
+.plan .price { font-size:1.9em; font-weight:700; color:#1a5276; margin:6px 0 2px; }
+.plan .price small { font-size:.42em; font-weight:600; color:#666; }
+.plan ul { margin:14px 0 18px 18px; color:#444; }
+.plan li { margin-bottom:7px; }
+.plan .buy { display:inline-block; background:#1a5276; color:#fff; padding:11px 26px; border-radius:6px;
+  text-decoration:none; font-weight:700; }
+.plan .buy:hover { opacity:.92; }
+.plan .fineprint { font-size:.85em; color:#666; margin-top:12px; }
+@media (max-width:640px) { .plans { grid-template-columns:1fr; } }
+.steps { background:#fff; padding:48px 20px; }
 .steps .inner { max-width:760px; margin:0 auto; }
 .steps h2 { color:#1a5276; font-size:1.5em; margin-bottom:16px; text-align:center; }
 .steps ol { max-width:560px; margin:0 auto; padding-left:22px; color:#444; }
@@ -73,6 +90,44 @@ footer { text-align:center; padding:20px; font-size:.85em; color:#888; }
     <div class="feature"><h3>Shareable</h3><p>Drive-URL links work for everyone you share the sheet with, on any device.</p></div>
     <div class="feature"><h3>Repair broken links</h3><p>Re-points dead file:/// links left by an Excel import at the matching Google&nbsp;Drive&trade; file, by exact filename — never guessed. Free for your first repair runs; unlimited with Pro.</p></div>
     <div class="feature"><h3>Free forever, Pro when you need it</h3><p>Exact matching on the sheet you're on is free — it is not a trial. Pro adds Partial match, subfolders, linking all tabs, and unlimited Repair.</p></div>
+  </div>
+</div>
+
+<div class="pricing">
+  <div class="inner">
+    <h2>Pricing</h2>
+    <p class="sub">The free tier is not a trial. It keeps working whether or not you ever buy a key.</p>
+    <div class="plans">
+
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>Exact-name matching</li>
+          <li>The folder you choose</li>
+          <li>The sheet you are on</li>
+          <li>Your first few link repairs (currently 3)</li>
+        </ul>
+        <a class="buy" style="background:#5a6b7a"
+           href="https://workspace.google.com/marketplace/app/linksheet_for_google_sheets/909822679503">Install free</a>
+      </div>
+
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <div class="price">$14.99 <small>one time</small></div>
+        <ul>
+          <li><strong>Partial match</strong> &mdash; link cells that only contain part of the file name</li>
+          <li><strong>Include subfolders</strong> &mdash; search a whole folder tree</li>
+          <li><strong>Link all tabs</strong> at once</li>
+          <li><strong>Unlimited Repair</strong> of broken links</li>
+        </ul>
+        <a class="buy" href="https://dhamster44.gumroad.com/l/linksheet-sheets-pro">Get a Pro key &mdash; $14.99</a>
+        <p class="fineprint">One payment, no subscription, nothing to renew. Install the free add-on
+        first, then paste your key into the sidebar. Keys are issued by hand and emailed within one
+        business day of purchase.</p>
+      </div>
+
+    </div>
   </div>
 </div>
 
