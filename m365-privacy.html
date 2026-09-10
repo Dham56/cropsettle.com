@@ -25,7 +25,7 @@
 <body>
   <div class="hero">
     <h1>Privacy Policy — LinkSheet for Microsoft 365</h1>
-    <div class="meta">Last updated: September 8, 2026 · CropSettle LLC</div>
+    <div class="meta">Last updated: September 10, 2026 · CropSettle LLC</div>
   </div>
 
   <div class="wrap">
@@ -47,14 +47,16 @@
         your cells and to build the hyperlinks. Permission: <code>Files.Read</code>, which is
         read-only. The add-in reads each file's <em>name</em> and its <em>link</em>. It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
-        anything in your OneDrive.</li>
-      <li><strong>Files shared with you</strong> — only if you open the "Shared with me" tab, and
-        only after you agree to an additional permission at that moment:
-        <code>Files.Read.All</code>, also read-only. If you never open that tab, this is never
-        requested.</li>
+        anything in your OneDrive. A shared folder that you have added to your own OneDrive
+        ("Add shortcut to My files") is reached through this same permission.</li>
     </ul>
-    <p>Those are the only permissions the add-in requests. You can see them yourself on the consent
-      screen when you first sign in.</p>
+    <p>Those two — <code>User.Read</code> and <code>Files.Read</code> — are the only Microsoft
+      permissions the add-in requests. Microsoft shows them to you the first time the add-in asks
+      for them. On Excel for the web the sign-in is usually silent, because Excel itself vouches for
+      the account you are already using; in that case you can review the permissions at any time
+      at <a href="https://myapps.microsoft.com/">myapps.microsoft.com</a> (work or school accounts)
+      or <a href="https://account.microsoft.com/privacy/app-access">account.microsoft.com</a>
+      (personal accounts).</p>
 
     <h2>What the add-in does NOT do</h2>
     <ul>
@@ -74,11 +76,21 @@
       through CropSettle LLC.</p>
 
     <h2>What is stored, and where</h2>
-    <p>The add-in stores one thing: the sign-in token issued by Microsoft, kept by Microsoft's own
-      authentication library in your browser's local storage so you are not asked to sign in on
-      every run. It stays on your device, and signing out removes it. We never see it.</p>
-    <p>No other settings, file names, cell values, or usage records are retained after a run
-      finishes.</p>
+    <p>The add-in keeps three things, all in your browser's local storage on your own device, and
+      none of them ever leaves it:</p>
+    <ul>
+      <li><strong>The sign-in token issued by Microsoft</strong>, kept by Microsoft's own
+        authentication library so you are not asked to sign in on every run. Signing out removes
+        it. We never see it.</li>
+      <li><strong>A licence key, if you have entered one.</strong> The key is a signed string that
+        the add-in checks on your device; nothing about it is sent anywhere, and there is no licence
+        server. "Remove key" deletes it.</li>
+      <li><strong>A count of Repair runs used on the plan without a key</strong> — a single number,
+        so the add-in knows how many remain. It is not sent anywhere and it records nothing about
+        the workbook, the folder, or the links.</li>
+    </ul>
+    <p>No file names, cell values, folder names, results, or other usage records are retained after
+      a run finishes. Clearing this site's data in your browser removes all three items above.</p>
 
     <h2>Undo and safety</h2>
     <p>The add-in does not make separate backup copies. Excel's own version history — File ▸ Info ▸
@@ -90,12 +102,13 @@
       knowingly collect information from them — or, in fact, from anyone.</p>
 
     <h2>Changes to this policy</h2>
-    <p>If this policy changes we will update the date above. Because the add-in collects nothing,
-      material changes are unlikely.</p>
+    <p>If this policy changes we will update the date above. Because the add-in sends nothing to
+      us, material changes are unlikely.</p>
 
     <h2>Your rights</h2>
-    <p>We hold no personal data about users of this add-in, so there is nothing for us to export,
-      correct, or delete on request. If you believe otherwise, write to us and we will look into it.</p>
+    <p>We hold no personal data about users of this add-in — everything listed above stays on your
+      device — so there is nothing for us to export, correct, or delete on request. If you believe
+      otherwise, write to us and we will look into it.</p>
 
     <h2>Contact</h2>
     <p>Questions or requests: <a href="mailto:support@cropsettle.com">support@cropsettle.com</a><br />
@@ -104,7 +117,7 @@
 
   <footer>
     &copy; 2026 CropSettle LLC. All rights reserved. ·
-    <a href="https://cropsettle.com/support/">Support</a>
+    <a href="https://cropsettle.com/m365-support.html">Support</a>
   </footer>
 </body>
 </html>

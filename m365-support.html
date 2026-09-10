@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — LinkSheet for Microsoft 365 | CropSettle LLC</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Help and support for LinkSheet for Microsoft 365, the Excel add-in that hyperlinks a OneDrive folder into your workbook — setup, FAQ, and how to contact CropSettle LLC.">
+  <style>
+    :root { --brand:#1a5276; --brand2:#2e86c1; --ink:#2c3e50; --mid:#555; --line:#e0e6ec; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',-apple-system,Arial,sans-serif; color:var(--ink); line-height:1.6; }
+    .hero { background:linear-gradient(135deg,#1a5276 0%,#2e86c1 100%); color:#fff; padding:48px 20px; text-align:center; }
+    .hero h1 { font-size:1.9em; font-weight:700; margin-bottom:6px; }
+    .hero .meta { opacity:.85; font-size:.95em; }
+    .wrap { max-width:760px; margin:0 auto; padding:48px 22px 72px; }
+    h2 { color:var(--brand); font-size:1.25em; margin:30px 0 8px; border-bottom:1px solid var(--line); padding-bottom:5px; }
+    h3 { color:var(--ink); font-size:1.02em; margin:18px 0 4px; }
+    p { margin-bottom:14px; color:#444; }
+    ul, ol { padding-left:22px; margin-bottom:14px; }
+    li { margin:6px 0; color:#444; }
+    code { background:#f0f4f8; padding:1px 5px; border-radius:4px; font-size:90%; }
+    a { color:var(--brand2); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .card { background:#f0f4f8; border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin:18px 0; }
+    .card.warn { background:#fff8e1; border-color:#f0c36d; border-left:4px solid #f0a500; color:#5a4300; }
+    .card.warn strong { color:#7a5c00; }
+    .card .email { font-size:1.15em; font-weight:700; }
+    footer { text-align:center; padding:22px; font-size:.85em; color:#888; border-top:1px solid var(--line); }
+    footer a { color:#888; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Support — LinkSheet for Microsoft 365</h1>
+    <p class="meta">CropSettle LLC · We're here to help</p>
+  </div>
+
+  <div class="wrap">
+    <p>This is the support page for <strong>LinkSheet for Microsoft 365</strong>, an Excel add-in by
+    CropSettle LLC that hyperlinks the files in a OneDrive folder into your workbook. Below are
+    quick-start steps, answers to common questions, and how to reach us directly. This page is about
+    the Excel add-in only; our other products have their own support pages.</p>
+
+    <div class="card">
+      <h2 style="margin-top:0;border:none;">Contact us</h2>
+      <p style="margin-bottom:6px;">Email our support team — we typically reply within
+      <strong>1–2 business days</strong>:</p>
+      <p class="email"><a href="mailto:support@cropsettle.com">support@cropsettle.com</a></p>
+      <p style="margin-bottom:0;">Please include where you run Excel (web, Windows, Mac, or iPad), whether
+      the account is personal or work/school, and the exact text of any message the add-in showed.
+      The report at the bottom of the panel can be copied and pasted.</p>
+    </div>
+
+    <div class="card warn">
+      <strong>The folders you see in the add-in are in OneDrive, not on your computer.</strong>
+      An Excel add-in runs inside Excel's browser sandbox and cannot see your hard drive. If your
+      documents live on your PC or in Google Drive rather than in OneDrive or SharePoint, this
+      add-in cannot reach them &mdash; move them into OneDrive first, or use the LinkSheet product
+      built for where they are.
+    </div>
+
+    <h2>Getting started</h2>
+    <ol>
+      <li>Open a workbook in Excel. On the <strong>Home</strong> tab, choose <strong>LinkSheet &rarr; Link
+        Files</strong>. The panel opens on the right.
+        <br><em>Not there?</em> In Excel's <strong>Single Line Ribbon</strong> layout the button sits in
+        the overflow menu (the &raquo; or chevron at the right end of the ribbon). Switching to
+        <strong>Classic Ribbon</strong> shows it in full.</li>
+      <li>Press <strong>Sign in to OneDrive</strong>. On Excel for the web this is usually silent, because
+        Excel vouches for the account you are already using. Elsewhere Microsoft may open a sign-in
+        window and show the two permissions the add-in asks for (your name, and read-only access to
+        your files).</li>
+      <li>Browse to the folder that holds your documents and press <strong>Use this folder</strong>
+        &mdash; the button under the folder path, not the folder's row.</li>
+      <li>Select the worksheet whose cells name your files, then press <strong>Link Files</strong>.
+        Every cell whose text matches a file name in the folder becomes a hyperlink to that file.
+        The report lists each cell that was linked and each one that was not, and why.</li>
+    </ol>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Nothing was linked.</h3>
+    <p>Link Files matches a cell's text to a file <em>name</em> (without its extension) in the folder
+    you chose. Check that the sheet that was active when you pressed the button is the one with the
+    names in it, and that the folder holds the files themselves rather than a further subfolder. By
+    default only the chosen folder is read, not the folders inside it. Numbers that look like
+    quantities, money, dates or percentages are deliberately not linked, so <code>28743.79</code> will
+    not be linked to <code>28743.pdf</code>.</p>
+
+    <h3>Some cells say "ambiguous".</h3>
+    <p>Two or more files could be the right one and the add-in will not guess. Rename one of the files,
+    or make the cell text more specific, and run again. Cells that were linked are not affected.</p>
+
+    <h3>The report says a file name appears more than once.</h3>
+    <p>When the same file name exists in two places in the scanned folders, the first one found is used
+    and the report names the one that was not, so you can check it. If that is the wrong choice,
+    rename one of the files.</p>
+
+    <h3>What does Repair Broken Links do?</h3>
+    <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder
+    or network share, so they open nothing. Repair reads every link in the workbook, and for each one
+    that points at a PC path or network share it looks for a file of exactly that name in the folder
+    you chose (including its subfolders). If exactly one file matches, the link is re-pointed at it;
+    the cell's text is not changed. Anything Repair cannot resolve is listed, never guessed: a name
+    that exists twice, a name with a different file type, a link to a folder, a link whose address is
+    calculated by a formula, or a name not in the folder at all. Web links are left alone &mdash; the
+    add-in only reads where a link points and never follows it, so it cannot tell whether a web
+    address still opens.</p>
+
+    <h3>Repair stopped and said it had used its allowance.</h3>
+    <p>The plan without a key includes a limited number of Repair runs; a run that repairs nothing is
+    not counted. If you have a key, paste it into the <strong>Key</strong> box in the panel. If you
+    do not, write to us and we will explain the options for your situation.</p>
+
+    <h3>Will it change or delete my data?</h3>
+    <p>The add-in only ever writes hyperlinks onto cells. It never changes cell values, never writes
+    over a formula, and never creates, changes, moves or deletes anything in OneDrive. Clear
+    Hyperlinks removes the links from every sheet in the workbook and resets the font colour of the
+    cells that carried one; the text stays. The add-in does not make backup copies &mdash; Excel's own
+    <strong>Version History</strong> (File &rarr; Info) is the undo for any run.</p>
+
+    <h3>What does the add-in access?</h3>
+    <p>The open workbook's cells, and the <em>names</em> and <em>links</em> of the files in the folder
+    you choose. It never opens or downloads a file's contents, and nothing is sent to CropSettle LLC
+    &mdash; we run no server. The full policy is at
+    <a href="https://cropsettle.com/m365-privacy.html">cropsettle.com/m365-privacy.html</a>.</p>
+
+    <h3>I have a key. Where do I enter it?</h3>
+    <p>In the panel, paste the whole key (it starts with <code>LSM1.</code>) into the <strong>Key</strong>
+    box and press the button beside it. The panel confirms that the key was accepted and, if your
+    browser will not keep site data, tells you that the key will need to be entered again next time.
+    <strong>Remove key</strong> deletes it from that browser. A key issued for LinkSheet for Google
+    Sheets is a different product and will not be accepted here.</p>
+
+    <h3>How do I remove the add-in?</h3>
+    <p>In Excel, <strong>Insert &rarr; Add-ins &rarr; My Add-ins</strong>, open the menu on the LinkSheet
+    tile and choose <strong>Remove</strong>. Links already written into your workbooks stay as they
+    are &mdash; they are ordinary Excel hyperlinks.</p>
+
+    <h2>Policies</h2>
+    <ul>
+      <li><a href="https://cropsettle.com/m365-privacy.html">Privacy policy — LinkSheet for Microsoft 365</a></li>
+    </ul>
+
+    <h2>Company</h2>
+    <p>CropSettle LLC<br>
+    30691 County Road 9, Haxtun, CO 80731-9503, United States<br>
+    <a href="mailto:support@cropsettle.com">support@cropsettle.com</a></p>
+    <p>Microsoft, Excel, Microsoft 365 and OneDrive are trademarks of the Microsoft group of companies.
+    LinkSheet for Microsoft 365 is an independent product and is not affiliated with or endorsed by
+    Microsoft.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 CropSettle LLC. All rights reserved.
+  </footer>
+</body>
+</html>
