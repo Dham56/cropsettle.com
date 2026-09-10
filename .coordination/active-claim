@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=m365 terms of use page
+expires_epoch=1789047032
+expires=2026-09-10T13:30:32Z
