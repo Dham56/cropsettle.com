@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 support page + privacy policy fix (Grok final review)
-expires_epoch=1789044986
-expires=2026-09-10T12:56:26Z
+agent=none
+reason=
+expires_epoch=0
+expires=
