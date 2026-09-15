@@ -1,4 +1,4 @@
-agent=windows
-reason=m365-privacy token transmission claim
-expires_epoch=1789445098
-expires=2026-09-15T04:04:58Z
+agent=none
+reason=
+expires_epoch=0
+expires=
