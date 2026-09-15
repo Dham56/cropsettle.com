@@ -76,12 +76,16 @@
       through CropSettle LLC.</p>
 
     <h2>What is stored, and where</h2>
-    <p>The add-in keeps three things, all in your browser's local storage on your own device, and
-      none of them ever leaves it:</p>
+    <p>The add-in keeps three things on your own device, in your browser's storage. <strong>None of
+      the three is ever sent to CropSettle</strong>, and only the first is sent anywhere at all:</p>
     <ul>
       <li><strong>The sign-in token issued by Microsoft</strong>, kept by Microsoft's own
-        authentication library so you are not asked to sign in on every run. Signing out removes
-        it. We never see it.</li>
+        authentication library so you are not asked to sign in on every run. <strong>This token is
+        sent back to Microsoft with each request the add-in makes to Microsoft Graph</strong> — that
+        is how any Microsoft-authenticated app proves who you are, and it goes to Microsoft and
+        nowhere else. It is held in local storage by the task pane; the separate sign-in window,
+        used where the in-place sign-in is unavailable, uses session storage instead. Signing out
+        removes it. We never see it.</li>
       <li><strong>A licence key, if you have entered one.</strong> The key is a signed string that
         the add-in checks on your device; nothing about it is sent anywhere, and there is no licence
         server. "Remove key" deletes it.</li>
