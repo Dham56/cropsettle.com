@@ -101,7 +101,7 @@
     <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder
     or network share, so they open nothing. Repair reads every link in the workbook, and for each one
     that points at a PC path or network share it looks for a file of exactly that name in the folder
-    you chose (including its subfolders). If exactly one file matches, the link is re-pointed at it;
+    you chose (on the free tier this always includes subfolders; with a Pro key the <strong>Include subfolders</strong> checkbox controls both Link Files and Repair, so leave it ticked if you want them searched). If exactly one file matches, the link is re-pointed at it;
     the cell's text is not changed. Anything Repair cannot resolve is listed, never guessed: a name
     that exists twice, a name with a different file type, a link to a folder, a link whose address is
     calculated by a formula, or a name not in the folder at all. Web links are left alone &mdash; the
