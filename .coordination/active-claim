@@ -1,4 +1,4 @@
 agent=windows
-reason=windows-claude
-expires_epoch=
-expires=
+reason=m365-support formula claim fix
+expires_epoch=1789435613
+expires=2026-09-15T01:26:53Z
