@@ -36,20 +36,32 @@
 
     <h2>What the add-in accesses</h2>
     <ul>
-      <li><strong>The workbook you have open</strong> — to read cell values, so it can tell which
-        cell names which file, and to write the hyperlinks you ask for. Link Files reads and writes
-        the active worksheet; Repair Broken Links and Clear Hyperlinks read and write every sheet in
-        the open workbook. This happens through Excel's own add-in interface and needs no Microsoft
-        account permission at all.</li>
-      <li><strong>Your name</strong> — shown at the top of the panel so you can see which account is
-        signed in. Microsoft Graph permission: <code>User.Read</code>.</li>
+      <li><strong>The workbook you have open</strong> — to read cell values and the text each cell
+        displays, so it can tell which cell names which file, and to write the hyperlinks you ask
+        for. It also reads each cell's <em>formula</em>, so that it can leave formula cells alone,
+        and the <em>destination of links already in the sheet</em>, so that Repair knows which ones
+        point at a place that no longer works and Clear knows what to remove. Link Files reads and
+        writes the active worksheet; Repair Broken Links and Clear Hyperlinks read and write every
+        sheet in the open workbook. This happens through Excel's own add-in interface and needs no
+        Microsoft account permission at all.</li>
+      <li><strong>Your name and the username you signed in with</strong> — the name is shown at the
+        top of the panel so you can see which account is in use. Microsoft Graph permission:
+        <code>User.Read</code>.</li>
       <li><strong>File names and links in the OneDrive folder you choose</strong> — to match files to
         your cells and to build the hyperlinks. Permission: <code>Files.Read</code>, which is
-        read-only. The add-in reads each file's <em>name</em> and its <em>link</em>. It does not open,
+        read-only. The add-in reads each file's <em>name</em>, its <em>link</em>, and the identifiers
+        OneDrive returns alongside them — the file's id, the folder it sits in, and, for a shared
+        folder you have added to your own OneDrive, the id of the drive it really lives on. It does
+        not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
         anything in your OneDrive. A shared folder that you have added to your own OneDrive
         ("Add shortcut to My files") is reached through this same permission.</li>
-    </ul>
+        </ul>
+
+    <p>Two other network connections are part of how any Office add-in works, rather than something
+      LinkSheet chooses: Office loads the add-in's own files from our web host at
+      <code>dham56.github.io</code>, and loads Microsoft's <code>Office.js</code> library from
+      <code>appsforoffice.microsoft.com</code>. Neither carries anything from your workbook.</p>
     <p>Those two — <code>User.Read</code> and <code>Files.Read</code> — are the only Microsoft
       permissions the add-in requests. Microsoft shows them to you the first time the add-in asks
       for them. On Excel for the web the sign-in is usually silent, because Excel itself vouches for
