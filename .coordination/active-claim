@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
+agent=windows
+reason=windows-claude
+expires_epoch=
 expires=
