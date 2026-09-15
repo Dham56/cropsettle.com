@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 privacy page: state what the add-in actually reads (submission board finding)
-expires_epoch=1789506333
-expires=2026-09-15T21:05:33Z
+agent=none
+reason=
+expires_epoch=0
+expires=
