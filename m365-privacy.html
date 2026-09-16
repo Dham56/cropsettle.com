@@ -39,7 +39,8 @@
       <li><strong>The workbook you have open</strong> — to read cell values and the text each cell
         displays, so it can tell which cell names which file, and to write the hyperlinks you ask
         for. It also reads each cell's <em>formula</em>, so that it can leave formula cells alone,
-        and the <em>destination of links already in the sheet</em>, so that Repair knows which ones
+        the <em>destination of links already in the sheet</em>, and any tooltip you wrote on such a
+        link (so that Repair can keep it), so that Repair knows which ones
         point at a place that no longer works and Clear knows what to remove. Link Files reads and
         writes the active worksheet; Repair Broken Links and Clear Hyperlinks read and write every
         sheet in the open workbook. This happens through Excel's own add-in interface and needs no
@@ -53,7 +54,8 @@
         OneDrive returns alongside them — the file's id, the folder it sits in, whether the item is
         a file or a folder, how many items a folder holds, the file's type and the checksums
         OneDrive publishes for it, and, for a shared folder you have added to your own OneDrive, the
-        id of the drive it really lives on. Those last few arrive as part of the standard listing
+        id of the drive it really lives on together with the details OneDrive returns about the item
+        that shortcut points to. Those last few arrive as part of the standard listing
         and are used only to tell files from folders and to count them; they are not stored and not
         sent anywhere. It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
@@ -111,8 +113,10 @@
         so the add-in knows how many remain. It is not sent anywhere and it records nothing about
         the workbook, the folder, or the links.</li>
     </ul>
-    <p>No file names, cell values, folder names, results, or other usage records are retained after
-      a run finishes. Clearing this site's data in your browser removes all three items above.</p>
+    <p>Nothing from a run is written to storage. The results stay on screen in the panel until you
+      close it or run again, and the folder you picked stays selected for that session, but no
+      file names, cell values, folder names or results are saved anywhere. Clearing this site's
+      data in your browser removes the three items above.</p>
 
     <h2>Undo and safety</h2>
     <p>The add-in does not make separate backup copies. Excel's own version history — File ▸ Info ▸
