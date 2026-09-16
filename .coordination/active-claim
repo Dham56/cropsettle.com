@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=m365 privacy page: name the Graph file/folder facets and MSAL's cache (board findings)
+expires_epoch=1789583304
+expires=2026-09-16T18:28:24Z

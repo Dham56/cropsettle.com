@@ -49,10 +49,13 @@
         <code>User.Read</code>.</li>
       <li><strong>File names and links in the OneDrive folder you choose</strong> — to match files to
         your cells and to build the hyperlinks. Permission: <code>Files.Read</code>, which is
-        read-only. The add-in reads each file's <em>name</em>, its <em>link</em>, and the identifiers
-        OneDrive returns alongside them — the file's id, the folder it sits in, and, for a shared
-        folder you have added to your own OneDrive, the id of the drive it really lives on. It does
-        not open,
+        read-only. The add-in reads each file's <em>name</em>, its <em>link</em>, and the details
+        OneDrive returns alongside them — the file's id, the folder it sits in, whether the item is
+        a file or a folder, how many items a folder holds, the file's type and the checksums
+        OneDrive publishes for it, and, for a shared folder you have added to your own OneDrive, the
+        id of the drive it really lives on. Those last few arrive as part of the standard listing
+        and are used only to tell files from folders and to count them; they are not stored and not
+        sent anywhere. It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
         anything in your OneDrive. A shared folder that you have added to your own OneDrive
         ("Add shortcut to My files") is reached through this same permission.</li>
@@ -88,11 +91,14 @@
       through CropSettle LLC.</p>
 
     <h2>What is stored, and where</h2>
-    <p>The add-in keeps three things on your own device, in your browser's storage. <strong>None of
-      the three is ever sent to CropSettle</strong>, and only the first is sent anywhere at all:</p>
+    <p>The add-in keeps three kinds of thing on your own device, in your browser's storage.
+      <strong>None of them is ever sent to CropSettle</strong>, and only the first is sent anywhere
+      at all:</p>
     <ul>
-      <li><strong>The sign-in token issued by Microsoft</strong>, kept by Microsoft's own
-        authentication library so you are not asked to sign in on every run. <strong>This token is
+      <li><strong>Microsoft sign-in data</strong> — an access token and, alongside it, the
+        account record and authentication details that Microsoft's own sign-in library keeps so you
+        are not asked to sign in on every run. We do not decide what that library stores or for how
+        long; that is Microsoft's, and it stays on your device. <strong>This token is
         sent back to Microsoft with each request the add-in makes to Microsoft Graph</strong> — that
         is how any Microsoft-authenticated app proves who you are, and it goes to Microsoft and
         nowhere else. It is held in local storage by the task pane; the separate sign-in window,
