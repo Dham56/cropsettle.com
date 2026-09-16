@@ -55,9 +55,11 @@
         a file or a folder, how many items a folder holds, the file's type and the checksums
         OneDrive publishes for it, and, for a shared folder you have added to your own OneDrive, the
         id of the drive it really lives on together with the details OneDrive returns about the item
-        that shortcut points to. Those last few arrive as part of the standard listing
-        and are used only to tell files from folders and to count them; they are not stored and not
-        sent anywhere. It does not open,
+        that shortcut points to, which can include who created or last changed it and when. Of all
+        of that, the add-in uses only the names, links and folder/file flags, and the ids it needs to
+        ask Microsoft for the next folder - those ids go back to Microsoft in the following
+        requests, and nowhere else. The checksums and counts arrive with the listing and are not
+        used; nothing from a listing is stored. It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
         anything in your OneDrive. A shared folder that you have added to your own OneDrive
         ("Add shortcut to My files") is reached through this same permission.</li>

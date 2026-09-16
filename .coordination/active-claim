@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=m365 support/privacy: round-3 board findings (octal-mangled formula path, remoteItem ids go back to Microsoft, hashes unused)
+expires_epoch=1789589059
+expires=2026-09-16T20:04:19Z
