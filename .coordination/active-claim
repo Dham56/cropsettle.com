@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 support+privacy: round-2 board findings (1120.2 wording, ledger promise, ScreenTips, remoteItem, pane state)
-expires_epoch=1789586950
-expires=2026-09-16T19:29:10Z
+agent=none
+reason=
+expires_epoch=0
+expires=
