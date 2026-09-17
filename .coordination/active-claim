@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=m365-support FAQ wording (Grok round-4 LOWs)
+expires_epoch=1789604440
+expires=2026-09-17T00:20:40Z

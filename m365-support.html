@@ -74,7 +74,8 @@
       <li>Browse to the folder that holds your documents and press <strong>Use this folder</strong>
         &mdash; the button under the folder path, not the folder's row.</li>
       <li>Select the worksheet whose cells name your files, then press <strong>Link Files</strong>.
-        Every cell whose text matches a file name in the folder becomes a hyperlink to that file.
+        Every cell whose text matches a file name in the folder becomes a hyperlink to that file;
+        cells that already carry a link, and cells holding formulas, are left as they are.
         The report gives the totals, lists up to 200 of the linked cells by address, and counts
         the cells that had no matching file.</li>
     </ol>
@@ -90,8 +91,11 @@
     not be linked to <code>28743.pdf</code>.</p>
 
     <h3>Some cells say "ambiguous".</h3>
-    <p>Two or more files could be the right one and the add-in will not guess. Rename one of the files,
-    or make the cell text more specific, and run again. Cells that were linked are not affected.</p>
+    <p>With Partial match on, and in Repair, this means two or more files could be the right one and
+    the add-in will not guess. Rename one of the files, or make the cell text more specific, and run
+    again. Cells that were linked are not affected. With exact matching (the default) a cell is never
+    reported as ambiguous: when two files share a name, the first one found is linked and the report
+    names the one that was not used &mdash; see the next question.</p>
 
     <h3>The report says a file name appears more than once.</h3>
     <p>When the same file name exists in two places in the scanned folders, the first one found is used
