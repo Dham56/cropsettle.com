@@ -86,9 +86,9 @@
     <p>Link Files matches a cell's text to a file <em>name</em> (without its extension) in the folder
     you chose. Check that the sheet that was active when you pressed the button is the one with the
     names in it, and that the folder holds the files themselves rather than a further subfolder. By
-    default only the chosen folder is read, not the folders inside it. Numbers that look like
-    quantities, money, dates or percentages are deliberately not linked, so <code>28743.79</code> will
-    not be linked to <code>28743.pdf</code>.</p>
+    default only the chosen folder is read, not the folders inside it. Partial match deliberately
+    ignores numbers that look like quantities, money, dates or percentages, so <code>28743.79</code>
+    will not be linked to <code>28743.pdf</code>; a cell that exactly matches a file name still links.</p>
 
     <h3>Some cells say "ambiguous".</h3>
     <p>With Partial match on, and in Repair, this means two or more files could be the right one and
@@ -98,9 +98,11 @@
     names the one that was not used &mdash; see the next question.</p>
 
     <h3>The report says a file name appears more than once.</h3>
-    <p>When the same file name exists in two places in the scanned folders, the first one found is used
-    and the report names the one that was not, so you can check it. If that is the wrong choice,
-    rename one of the files.</p>
+    <p>This is exact matching in Link Files: when the same file name exists in two places in the
+    scanned folders (or as Report.pdf beside Report.docx), the first one found is used and the report
+    names the one that was not, so you can check it. If that is the wrong choice, rename one of the
+    files. Partial match does not keep that list &mdash; it links the best-scoring file or reports the
+    cell as ambiguous &mdash; and Repair refuses any name that exists more than once.</p>
 
     <h3>What does Repair Broken Links do?</h3>
     <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder
