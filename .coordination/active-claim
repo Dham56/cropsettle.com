@@ -1,4 +1,4 @@
-agent=none
-reason=
-expires_epoch=0
-expires=
+agent=windows
+reason=m365-privacy: parentReference subfields (Grok round-7 LOW)
+expires_epoch=1789655508
+expires=2026-09-17T14:31:48Z
