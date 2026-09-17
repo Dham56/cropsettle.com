@@ -105,10 +105,11 @@
     cell as ambiguous &mdash; and Repair refuses any name that exists more than once.</p>
 
     <h3>What does Repair Broken Links do?</h3>
-    <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder
-    or network share. Those links cannot open in Excel on the web, and open for a colleague only if
-    that colleague can reach the same folder or share. Repair reads every link in the workbook, and for each one
-    that points at a PC path or network share it looks for a file of exactly that name in the folder
+    <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder,
+    network share, or a path relative to where the workbook used to live. Those links cannot open in
+    Excel on the web, and open for a colleague only if that colleague can reach the same folder or
+    share. Repair reads every link in the workbook, and for each one that points at a PC path, a
+    network share or a relative path it looks for a file of exactly that name in the folder
     you chose (without a key this always includes subfolders; with a key the <strong>Include subfolders</strong> checkbox controls both Link Files and Repair, so leave it ticked if you want them searched). If exactly one file matches, the link is re-pointed at it;
     the cell's text is not changed. Anything Repair cannot resolve is listed, never guessed: a name
     that exists twice, a name with a different file type, a link to a folder, a link whose address is
