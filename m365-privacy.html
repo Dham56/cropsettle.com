@@ -56,7 +56,10 @@
         a file or a folder, how many items a folder holds, the file's type and the checksums
         OneDrive publishes for it, and, for a shared folder you have added to your own OneDrive, the
         id of the drive it really lives on together with the details OneDrive returns about the item
-        that shortcut points to, which can include who created or last changed it and when. Of all
+        that shortcut points to, which can include who created or last changed it and when. These
+        folder, file, parent-folder and shortcut details arrive exactly as OneDrive returns them (for
+        example a folder's view settings, or the drive type and SharePoint ids of the containing
+        folder), whether or not the add-in has any use for them. Of all
         of that, the add-in uses only the names, links and folder/file flags, and the ids it needs to
         ask Microsoft for the next folder - those ids go back to Microsoft in the following
         requests, and nowhere else. The checksums and counts arrive with the listing and are not
