@@ -62,8 +62,9 @@
 
     <h2>Getting started</h2>
     <ol>
-      <li>Open a workbook in Excel. On the <strong>Home</strong> tab, choose <strong>LinkSheet &rarr; Link
-        Files</strong>. The panel opens on the right.
+      <li>Open a workbook in Excel. On the <strong>Home</strong> tab, press the <strong>LinkSheet</strong> button (it reads
+        <strong>Open LinkSheet</strong>; on add-in versions before October 2026 it reads <strong>Link Files</strong>).
+        The panel opens on the right.
         <br><em>Not there?</em> In Excel's <strong>Single Line Ribbon</strong> layout the button sits in
         the overflow menu (the &raquo; or chevron at the right end of the ribbon). Switching to
         <strong>Classic Ribbon</strong> shows it in full.</li>
@@ -73,7 +74,8 @@
         your files).</li>
       <li>Browse to the folder that holds your documents and press <strong>Use this folder</strong>
         &mdash; the button under the folder path, not the folder's row.</li>
-      <li>Select the worksheet whose cells name your files, then press <strong>Link Files</strong>.
+      <li>Select the worksheet whose cells name your files, then press the blue <strong>Create
+        Hyperlinks</strong> button.
         Every cell whose text matches a file name in the folder becomes a hyperlink to that file;
         cells that already carry a link, and cells holding formulas, are left as they are.
         The report gives the totals, lists up to 200 of the linked cells by address, and counts
@@ -83,7 +85,7 @@
     <h2>Frequently asked questions</h2>
 
     <h3>Nothing was linked.</h3>
-    <p>Link Files matches a cell's text to a file <em>name</em> (without its extension) in the folder
+    <p>Create Hyperlinks matches a cell's text to a file <em>name</em> (without its extension) in the folder
     you chose. Check that the sheet that was active when you pressed the button is the one with the
     names in it, and that the folder holds the files themselves rather than a further subfolder. By
     default only the chosen folder is read, not the folders inside it. Partial match deliberately
@@ -98,24 +100,32 @@
     names the one that was not used &mdash; see the next question.</p>
 
     <h3>The report says a file name appears more than once.</h3>
-    <p>This is exact matching in Link Files: when the same file name exists in two places in the
+    <p>This is exact matching in Create Hyperlinks: when the same file name exists in two places in the
     scanned folders (or as Report.pdf beside Report.docx), the first one found is used and the report
     names the one that was not, so you can check it. If that is the wrong choice, rename one of the
     files. Partial match does not keep that list &mdash; it links the best-scoring file or reports the
     cell as ambiguous &mdash; and Repair refuses any name that exists more than once.</p>
 
-    <h3>What does Repair Broken Links do?</h3>
+    <h3>What does Repair Hyperlinks do?</h3>
     <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder,
     network share, or a path relative to where the workbook used to live. Those links cannot open in
     Excel on the web, and open for a colleague only if that colleague can reach the same folder or
     share. Repair reads every link in the workbook, and for each one that points at a PC path, a
     network share or a relative path it looks for a file of exactly that name in the folder
-    you chose (without a key this always includes subfolders; with a key the <strong>Include subfolders</strong> checkbox controls both Link Files and Repair, so leave it ticked if you want them searched). If exactly one file matches, the link is re-pointed at it;
+    you chose (without a key this always includes subfolders; with a key the <strong>Include subfolders</strong> checkbox controls both Create Hyperlinks and Repair, so leave it ticked if you want them searched). If exactly one file matches, the link is re-pointed at it;
     the cell's text is not changed. Anything Repair cannot resolve is listed, never guessed: a name
     that exists twice, a name with a different file type, a link to a folder, a link whose address is
     calculated by a formula, or a name not in the folder at all. Web links are left alone &mdash; the
     add-in only reads where a link points and never follows it, so it cannot tell whether a web
     address still opens.</p>
+
+    <h3>My cells already have links, but they are dead. Why Repair Hyperlinks and not Create Hyperlinks?</h3>
+    <p>They read different things. Create Hyperlinks reads a cell's <em>text</em> and looks for a file of
+    that name; it never touches a cell that already carries a link, so on a cell with a dead link it does
+    nothing. Repair Hyperlinks reads the dead link's <em>target</em> &mdash; the old PC path, share or
+    relative path &mdash; and re-points that one link at the file of the same name in the folder you chose,
+    leaving the cell's text as it was. Use Repair for a workbook that arrived with broken links, and Create
+    for cells that have never had one.</p>
 
     <h3>Repair stopped and said it had used its allowance.</h3>
     <p>The plan without a key includes a limited number of Repair runs; a run that repairs nothing is
@@ -129,10 +139,20 @@
     stays. The add-in does not make backup copies &mdash; Excel's own
     <strong>Version History</strong> (File &rarr; Info) is the undo for any run.</p>
 
-    <p><strong>Formulas:</strong> <em>Link Files</em> never writes over a formula &mdash; a cell whose
+    <h3>If I rename or move a file later, does its link break?</h3>
+    <p>On a personal OneDrive (an address at onedrive.live.com) the add-in writes the link Microsoft
+    gives for the file's <em>ID</em>, not its path, so renaming the file or moving it to another folder in
+    the same OneDrive keeps the link working. Copying the file, downloading and re-uploading it, or moving
+    it to a different OneDrive or SharePoint site gives it a new ID, and the old link then opens the old
+    location. On OneDrive for work or school and SharePoint, the address Microsoft gives for a file can
+    include its folder and name, so a rename or move there may break the link; we have not measured
+    that on a work account. Repair Hyperlinks does not re-point web links of either kind &mdash; to relink,
+    run Clear Hyperlinks and then Create Hyperlinks again.</p>
+
+    <p><strong>Formulas:</strong> <em>Create Hyperlinks</em> never writes over a formula &mdash; a cell whose
     content starts with <code>=</code> is skipped and counted in the report. <em>Clear Hyperlinks</em>
     never edits a formula either, so a link written as <code>=HYPERLINK(&hellip;)</code> stays after a
-    Clear. <em>Repair Broken Links</em> is the one deliberate exception: a dead link written as
+    Clear. <em>Repair Hyperlinks</em> is the one deliberate exception: a dead link written as
     <code>=HYPERLINK("C:\Old\36426.pdf","36426")</code> can only be repaired by rewriting that
     formula, so Repair writes a new <code>=HYPERLINK()</code> with <strong>the same displayed text and
     a new address</strong>. It leaves every other kind of formula alone.</p>
