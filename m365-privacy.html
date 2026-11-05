@@ -63,7 +63,7 @@
         of that, the add-in uses only the names, links and folder/file flags, and the ids it needs to
         ask Microsoft for the next folder - those ids go back to Microsoft in the following
         requests, and nowhere else. The checksums and counts arrive with the listing and are not
-        used; nothing from a listing is stored. It does not open,
+        used. From a listing, only the folder you choose is kept (see "What is stored" below). It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
         anything in your OneDrive. A shared folder that you have added to your own OneDrive
         ("Add shortcut to My files") is reached through this same permission.</li>
@@ -101,8 +101,8 @@
 
     <h2>What is stored, and where</h2>
     <p>The add-in keeps four kinds of thing on your own device, in your browser's storage.
-      <strong>None of them is ever sent to CropSettle</strong>. Only the first, and the folder id in
-      the fourth, are sent anywhere at all, and only to Microsoft:</p>
+      <strong>None of them is ever sent to CropSettle</strong>. Only the first, and the folder and
+      drive ids in the fourth, are sent anywhere at all, and only to Microsoft:</p>
     <ul>
       <li><strong>Microsoft sign-in data</strong> — an access token and, alongside it, the
         account record and authentication details that Microsoft's own sign-in library keeps so you
@@ -125,11 +125,13 @@
         chosen OneDrive folder's name and ids (and, if you reached it by browsing, the names and ids
         of the folders above it), and, for each link Repair could not fix, that folder's id and the
         file name the link pointed at. These are filed under a short code worked out from the
-        workbook's address, not under the address itself. When you sign in again, the folder's id is
-        sent to Microsoft once, to check that the folder still exists and read its current name;
-        nothing else in this item is sent anywhere, and none of it is written into the workbook. Choosing another folder replaces the folder; a later Repair
-        that fixes a link forgets it. Signing out does not remove them; clearing this site's data
-        does.</li>
+        workbook's address, not under the address itself. The folder's id and the id of the drive it
+        is on are sent to Microsoft when you sign in again, to check that the folder still exists and
+        read its current name, and with each Create or Repair, to list the folder; nothing else in
+        this item is sent anywhere, and none of it is written into the workbook. The names of the
+        folders above it are kept only until that next sign-in, which keeps the folder alone.
+        Choosing another folder replaces the folder; a later Repair in the same folder that fixes a
+        link forgets that link. Signing out does not remove them; clearing this site's data does.</li>
     </ul>
     <p>Apart from the fourth item, nothing from a run is written to storage. The results stay on
       screen in the panel until you close it or run again; no cell values and no results are saved
@@ -137,9 +139,12 @@
       this site's data in your browser removes all four items above.</p>
 
     <h2>Undo and safety</h2>
-    <p>The add-in does not make separate backup copies. Excel's own version history — File ▸ Info ▸
-      Version History in Excel on the web, or the equivalent in your Office client — is the safety
-      net, and any run can be rolled back there.</p>
+    <p>The add-in does not make separate backup copies. For a workbook in OneDrive or SharePoint,
+      Excel's own version history — File ▸ Info ▸ Version History in Excel on the web, or the
+      equivalent in your Office client — is the safety net, and a run can be rolled back there. A
+      workbook saved only on your computer has no version history: if AutoSave is off and you have
+      not saved since the run, closing the workbook without saving undoes it, and also discards any
+      other changes since your last save.</p>
 
     <h2>Children</h2>
     <p>The add-in is a business productivity tool. It is not directed to children and we do not
