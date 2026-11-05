@@ -112,15 +112,21 @@
     cell as ambiguous &mdash; and Repair refuses any name that exists more than once.</p>
 
     <h3>What does Repair Hyperlinks do?</h3>
-    <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at the old PC folder,
-    network share, or a path relative to where the workbook used to live. Those links cannot open in
+    <p>When a workbook is moved from a PC to OneDrive, its hyperlinks still point at files or folders on
+    that PC or on a network drive (some as a path from where the workbook used to be). Those links cannot open in
     Excel on the web, and open for a colleague only if that colleague can reach the same folder or
     share. Repair reads every link in the workbook, and for each one that points at a PC path, a
     network share or a relative path it looks for a file of exactly that name in the folder
-    you chose (without a key this always includes subfolders; with a key the <strong>Include subfolders</strong> checkbox controls both Create Hyperlinks and Repair, so leave it ticked if you want them searched). If exactly one file matches, the link is re-pointed at it;
-    the cell's text is not changed. Anything Repair cannot resolve is listed, never guessed: a name
-    that exists twice, a name with a different file type, a link to a folder, a link whose address is
-    calculated by a formula, or a name not in the folder at all. Web links are left alone &mdash; the
+    you chose (without a key this always includes subfolders; with a key the <strong>Include subfolders</strong> checkbox controls both Create Hyperlinks and Repair, so leave it ticked if you want them searched). If exactly one file matches and no folder has that name, the link is re-pointed at it;
+    the cell's text is kept (if Excel turns a text id such as 0501234 into a number, Repair puts it back, and a
+    cell it cannot put back is named in the result). Anything Repair cannot resolve is listed, never guessed: a name
+    that exists twice, a name with a different file type, a link to a folder, a name with no file
+    extension that matches neither a file nor a folder here (Repair cannot tell which it was), an address
+    with no file name in it, a link whose address is calculated by a formula, or a name not in the folder
+    at all. Each list names the sheet and cell, such as <code>Contract!C9</code>; a link on a formula cell
+    other than <code>=HYPERLINK</code> is left alone and counted, not listed. An address that ends in
+    <code>\</code> or <code>/</code> is listed as a folder link. If the chosen folder holds more than 5,000
+    files, or is nested more than 25 levels deep, Repair stops before changing anything and says so. Web links, email links and links to a place in the workbook are left alone &mdash; the
     add-in only reads where a link points and never follows it, so it cannot tell whether a web
     address still opens.</p>
 
@@ -152,7 +158,8 @@
     Mac, File &rarr; Browse Version History); with AutoSave off, close the workbook without saving if you
     have not saved since clearing (that also discards any other changes since your last save), or
     Version History if the workbook is in OneDrive or SharePoint. A workbook saved only on your
-    computer has no version history. After Create or Repair, when AutoSave is off (or, in desktop Excel,
+    computer has no version history. Restoring a version brings back the whole workbook as it was
+    then, so changes made since are undone too. After Create or Repair, when AutoSave is off (or, in desktop Excel,
     cannot be read), the result reminds you to press Ctrl+S (&#8984;S on a Mac) to keep the new links.</p>
 
     <h3>If I rename or move a file later, does its link break?</h3>
@@ -190,8 +197,12 @@
     <p>Press <strong>About</strong> at the bottom of the panel. It shows the version, a build code and
     its date, and which Excel it is running in. Excel can keep an older copy of the panel for a while
     after an update. If the build below is newer than the one in About, close Excel completely and
-    open it again; in Excel on the web, reload the page.</p>
-    <p id="current-build">Current build: build b7cabce &middot; 2026-11-05 (UTC)</p>
+    open it again; in Excel on the web, reload the page. If About still shows the old build: on a Mac,
+    use <strong>Clear Web Cache</strong> in the panel's &#9432; menu, then restart Excel; in Excel for
+    Windows, File &rarr; Options &rarr; Trust Center &rarr; Trust Center Settings &rarr; Trusted Add-in
+    Catalogs &rarr; tick <em>Next time Office starts, clear all previously-started web add-ins cache</em>,
+    choose OK, then restart Excel; on an iPad, press <strong>Reload this pane</strong> in About.</p>
+    <p id="current-build">Current build: build 50737e4 &middot; 2026-11-05 (UTC)</p>
 
     <h3>I have a key. Where do I enter it?</h3>
     <p>In the panel, paste the whole key (it starts with <code>LSM1.</code>) into the <strong>Key</strong>
