@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 support page for the pane walkthrough-fixes deploy
-expires_epoch=1793905296
-expires=2026-11-05T19:01:36Z
+agent=none
+reason=
+expires_epoch=0
+expires=
