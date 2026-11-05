@@ -25,7 +25,7 @@
 <body>
   <div class="hero">
     <h1>Privacy Policy — LinkSheet for Microsoft 365</h1>
-    <div class="meta">Last updated: September 10, 2026 · CropSettle LLC</div>
+    <div class="meta">Last updated: November 4, 2026 · CropSettle LLC</div>
   </div>
 
   <div class="wrap">
@@ -100,9 +100,9 @@
       through CropSettle LLC.</p>
 
     <h2>What is stored, and where</h2>
-    <p>The add-in keeps three kinds of thing on your own device, in your browser's storage.
-      <strong>None of them is ever sent to CropSettle</strong>, and only the first is sent anywhere
-      at all:</p>
+    <p>The add-in keeps four kinds of thing on your own device, in your browser's storage.
+      <strong>None of them is ever sent to CropSettle</strong>. Only the first, and the folder id in
+      the fourth, are sent anywhere at all, and only to Microsoft:</p>
     <ul>
       <li><strong>Microsoft sign-in data</strong> — an access token and, alongside it, the
         account record and authentication details that Microsoft's own sign-in library keeps so you
@@ -119,11 +119,22 @@
       <li><strong>A count of Repair runs used on the plan without a key</strong> — a single number,
         so the add-in knows how many remain. It is not sent anywhere and it records nothing about
         the workbook, the folder, or the links.</li>
+      <li><strong>For each workbook, the folder you last used, and the files Repair could not
+        find.</strong> So the panel can offer the same folder the next time you open that workbook,
+        and does not keep telling you to run Repair for links it has already tried, it keeps the
+        chosen OneDrive folder's name and ids (and, if you reached it by browsing, the names and ids
+        of the folders above it), and, for each link Repair could not fix, that folder's id and the
+        file name the link pointed at. These are filed under a short code worked out from the
+        workbook's address, not under the address itself. When you sign in again, the folder's id is
+        sent to Microsoft once, to check that the folder still exists and read its current name;
+        nothing else in this item is sent anywhere, and none of it is written into the workbook. Choosing another folder replaces the folder; a later Repair
+        that fixes a link forgets it. Signing out does not remove them; clearing this site's data
+        does.</li>
     </ul>
-    <p>Nothing from a run is written to storage. The results stay on screen in the panel until you
-      close it or run again, and the folder you picked stays selected for that session, but no
-      file names, cell values, folder names or results are saved anywhere. Clearing this site's
-      data in your browser removes the three items above.</p>
+    <p>Apart from the fourth item, nothing from a run is written to storage. The results stay on
+      screen in the panel until you close it or run again; no cell values and no results are saved
+      anywhere, and Copy report puts the report on your clipboard only when you press it. Clearing
+      this site's data in your browser removes all four items above.</p>
 
     <h2>Undo and safety</h2>
     <p>The add-in does not make separate backup copies. Excel's own version history — File ▸ Info ▸
