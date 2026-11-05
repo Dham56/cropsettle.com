@@ -73,8 +73,12 @@
         Excel vouches for the account you are already using. Elsewhere Microsoft may open a sign-in
         window and show the two permissions the add-in asks for (your name, and read-only access to
         your files).</li>
-      <li>Browse to the folder that holds your documents and press <strong>Use this folder</strong>
-        &mdash; the button under the folder path, not the folder's row.</li>
+      <li>Click a folder's name to open it, and keep going until you are in the folder that holds
+        your documents. Then press the <strong>Use</strong> button under the folder path; it names
+        the folder you are in. The <strong>Using:</strong> line under the box's heading names the
+        folder Create and Repair will read, and shows its path when OneDrive gives one for your own
+        drive. For a workbook saved in OneDrive or SharePoint, the add-in remembers that folder for
+        that workbook in this browser.</li>
       <li>Select the worksheet whose cells name your files, then press the blue <strong>Create
         Hyperlinks</strong> button.
         Every cell whose text matches a file name in the folder becomes a hyperlink to that file;
@@ -134,11 +138,22 @@
     do not, write to us and we will explain the options for your situation.</p>
 
     <h3>Will it change or delete my data?</h3>
-    <p>The add-in only ever writes hyperlinks onto cells. It never changes cell values, and never
-    creates, changes, moves or deletes anything in OneDrive. Clear Hyperlinks removes the links from
+    <p>The add-in only writes hyperlinks onto cells, and keeps each cell's value. If Excel turns a text
+    id such as 0501234 into a number while a link is written, the add-in puts the text back and checks
+    it; a cell it could not put back is named in the result with what to do. It never creates,
+    changes, moves or deletes anything in OneDrive. Clear Hyperlinks removes hyperlinks from
     every sheet in the workbook and resets the font colour of the cells that carried one; the text
-    stays. The add-in does not make backup copies &mdash; Excel's own
-    <strong>Version History</strong> (File &rarr; Info) is the undo for any run.</p>
+    stays. Links written as a <code>=HYPERLINK</code> formula are left alone, and a protected sheet is
+    left as it is; the result names any sheet or cell it could not clear. Clear asks first: the first
+    press changes the button to <strong>Click again to clear every hyperlink in this workbook</strong>,
+    and nothing is cleared unless you press it again within 8 seconds.</p>
+    <p>The add-in does not make backup copies. After Clear, the result says how to get the links back:
+    with AutoSave on, <strong>Version History</strong> (File &rarr; Info &rarr; Version History; on a
+    Mac, File &rarr; Browse Version History); with AutoSave off, close the workbook without saving if you
+    have not saved since clearing (that also discards any other changes since your last save), or
+    Version History if the workbook is in OneDrive or SharePoint. A workbook saved only on your
+    computer has no version history. After Create or Repair, when AutoSave is off (or, in desktop Excel,
+    cannot be read), the result reminds you to press Ctrl+S (&#8984;S on a Mac) to keep the new links.</p>
 
     <h3>If I rename or move a file later, does its link break?</h3>
     <p>On a personal OneDrive (an address at onedrive.live.com) the add-in writes the link Microsoft
@@ -147,8 +162,13 @@
     it to a different OneDrive or SharePoint site gives it a new ID, and the old link then opens the old
     location. On OneDrive for work or school and SharePoint, the address Microsoft gives for a file can
     include its folder and name, so a rename or move there may break the link; we have not measured
-    that on a work account. Repair Hyperlinks does not re-point web links of either kind &mdash; to relink,
-    run Clear Hyperlinks and then Create Hyperlinks again.</p>
+    that on a work account. Repair Hyperlinks does not re-point web links of either kind. To link those
+    cells again, run Clear Hyperlinks, then run Create Hyperlinks on each sheet that had links: Clear
+    works on the whole workbook, Create on the sheet in view. A cell is linked again only if its text
+    matches a file name without the extension (see <em>Nothing was linked</em> above); any other cell is
+    left without a link. A link written as a <code>=HYPERLINK</code> formula, and any link on a protected
+    sheet, are left as they are. For a workbook converted from Excel with links to a PC folder, use
+    Repair Hyperlinks instead.</p>
 
     <p><strong>Formulas:</strong> <em>Create Hyperlinks</em> never writes over a formula &mdash; a cell whose
     content starts with <code>=</code> is skipped and counted in the report. <em>Clear Hyperlinks</em>
@@ -161,8 +181,17 @@
     <h3>What does the add-in access?</h3>
     <p>The open workbook's cells, and the <em>names</em> and <em>links</em> of the files in the folder
     you choose. It never opens or downloads a file's contents, and nothing is sent to CropSettle LLC
-    &mdash; we run no server. The full policy is at
+    &mdash; we run no server. In your browser it remembers, for each workbook saved in OneDrive or
+    SharePoint, the folder you last used and the links Repair could not fix, so it can offer that
+    folder again and not repeat itself. The full policy is at
     <a href="https://cropsettle.com/m365-privacy.html">cropsettle.com/m365-privacy.html</a>.</p>
+
+    <h3>Which version am I running?</h3>
+    <p>Press <strong>About</strong> at the bottom of the panel. It shows the version, a build code and
+    its date, and which Excel it is running in. Excel can keep an older copy of the panel for a while
+    after an update. If the build below is newer than the one in About, close Excel completely and
+    open it again; in Excel on the web, reload the page.</p>
+    <p id="current-build">Current build: build b7cabce &middot; 2026-11-05 (UTC)</p>
 
     <h3>I have a key. Where do I enter it?</h3>
     <p>In the panel, paste the whole key (it starts with <code>LSM1.</code>) into the <strong>Key</strong>

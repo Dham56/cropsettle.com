@@ -25,7 +25,7 @@
 <body>
   <div class="hero">
     <h1>Privacy Policy — LinkSheet for Microsoft 365</h1>
-    <div class="meta">Last updated: November 4, 2026 · CropSettle LLC</div>
+    <div class="meta">Last updated: November 5, 2026 · CropSettle LLC</div>
   </div>
 
   <div class="wrap">
@@ -62,8 +62,9 @@
         folder), whether or not the add-in has any use for them. Of all
         of that, the add-in uses only the names, links and folder/file flags, and the ids it needs to
         ask Microsoft for the next folder - those ids go back to Microsoft in the following
-        requests, and nowhere else. The checksums and counts arrive with the listing and are not
-        used. From a listing, only the folder you choose is kept (see "What is stored" below). It does not open,
+        requests, and nowhere else - plus, for the folder you chose, the path of folders above it
+        when OneDrive gives one for your own drive, which the panel shows and does not store. The checksums and counts arrive with the listing
+        and are not used. From a listing, only the folder you choose is kept (see "What is stored" below). It does not open,
         download, or read the contents of any file, and it never creates, changes, moves or deletes
         anything in your OneDrive. A shared folder that you have added to your own OneDrive
         ("Add shortcut to My files") is reached through this same permission.</li>
@@ -122,14 +123,15 @@
       <li><strong>For each workbook, the folder you last used, and the files Repair could not
         find.</strong> So the panel can offer the same folder the next time you open that workbook,
         and does not keep telling you to run Repair for links it has already tried, it keeps the
-        chosen OneDrive folder's name and ids (and, if you reached it by browsing, the names and ids
-        of the folders above it), and, for each link Repair could not fix, that folder's id and the
+        chosen OneDrive folder's name and ids, and, for each link Repair could not fix, that folder's id and the
         file name the link pointed at. These are filed under a short code worked out from the
         workbook's address, not under the address itself. The folder's id and the id of the drive it
         is on are sent to Microsoft when you sign in again, to check that the folder still exists and
-        read its current name, and with each Create or Repair, to list the folder; nothing else in
-        this item is sent anywhere, and none of it is written into the workbook. The names of the
-        folders above it are kept only until that next sign-in, which keeps the folder alone.
+        read its current name and path (the folders above it are shown in the panel for a folder
+        on your own drive when OneDrive returns them, the top of the drive is shown as My files, and
+        none of it is stored), and with each Create or
+        Repair, to list the folder; nothing else in this item is sent anywhere, and none of it is
+        written into the workbook.
         Choosing another folder replaces the folder; a later Repair in the same folder that fixes a
         link forgets that link. Signing out does not remove them; clearing this site's data does.</li>
     </ul>
