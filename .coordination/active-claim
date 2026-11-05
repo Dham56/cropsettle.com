@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 support + privacy pages for the pane About/folder-box deploy
-expires_epoch=1793894029
-expires=2026-11-05T15:53:49Z
+agent=none
+reason=
+expires_epoch=0
+expires=
