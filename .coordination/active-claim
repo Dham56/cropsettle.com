@@ -1,4 +1,4 @@
-agent=windows
-reason=m365 privacy page: disclose per-workbook folder memory (ships with the 365 pane deploy)
-expires_epoch=1793852519
-expires=2026-11-05T04:21:59Z
+agent=none
+reason=
+expires_epoch=0
+expires=
