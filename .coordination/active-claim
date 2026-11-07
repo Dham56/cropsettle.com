@@ -1,4 +1,4 @@
-agent=windows
-reason=m365-support build line 42595ba + Text format sentence
-expires_epoch=1794035366
-expires=2026-11-07T07:09:26Z
+agent=none
+reason=
+expires_epoch=0
+expires=
