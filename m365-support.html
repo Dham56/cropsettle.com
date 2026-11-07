@@ -146,7 +146,8 @@
     <h3>Will it change or delete my data?</h3>
     <p>The add-in only writes hyperlinks onto cells, and keeps each cell's value. If Excel turns a text
     id such as 0501234 into a number while a link is written, the add-in puts the text back and checks
-    it; a cell it could not put back is named in the result with what to do. It never creates,
+    it; a cell it could not put back is named in the result with what to do. A cell formatted as
+    Text keeps that format; one whose format could not be put back is named too. It never creates,
     changes, moves or deletes anything in OneDrive. Clear Hyperlinks removes hyperlinks from
     every sheet in the workbook and resets the font colour of the cells that carried one; the text
     stays. Links written as a <code>=HYPERLINK</code> formula are left alone, and a protected sheet is
@@ -202,7 +203,7 @@
     Windows, File &rarr; Options &rarr; Trust Center &rarr; Trust Center Settings &rarr; Trusted Add-in
     Catalogs &rarr; tick <em>Next time Office starts, clear all previously-started web add-ins cache</em>,
     choose OK, then restart Excel; on an iPad, press <strong>Reload this pane</strong> in About.</p>
-    <p id="current-build">Current build: build 56f2ebe &middot; 2026-11-06 (UTC)</p>
+    <p id="current-build">Current build: build 42595ba &middot; 2026-11-07 (UTC)</p>
 
     <h3>I have a key. Where do I enter it?</h3>
     <p>In the panel, paste the whole key (it starts with <code>LSM1.</code>) into the <strong>Key</strong>
